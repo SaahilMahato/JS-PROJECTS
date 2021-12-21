@@ -14,13 +14,15 @@ var input = {
   }
 };
 
-function normalize(input) {
+function normalize(inp) {
+
+  input = {...inp};
 
   let result = {};
 
   Object.keys(input).forEach((element) => {
 
-    result[element] = input[element]; // add the element to result
+    result[element] = {...input[element]}; // add the element to result
 
     // function to push elements child to array
     function addChildren(childrenArray) {
