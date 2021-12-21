@@ -14,15 +14,15 @@ var input = {
   }
 };
 
-function normalize(inp) {
+function normalize(input) {
 
-  input = {...inp};
+  inp = {...input};
 
   let result = {};
 
-  Object.keys(input).forEach((element) => {
+  Object.keys(inp).forEach((element) => {
 
-    result[element] = {...input[element]}; // add the element to result
+    result[element] = {...inp[element]}; // add the element to result
 
     // function to push elements child to array
     function addChildren(childrenArray) {
@@ -37,12 +37,12 @@ function normalize(inp) {
 
     }
 
-    addChildren(input[element].children); // call the addChildren function for parent
+    addChildren(inp[element].children); // call the addChildren function for parent
   });
 
   // function to get id of children
-  function childrenId(input) {
-    return input.map(element => element.id);
+  function childrenId(inp) {
+    return inp.map(element => element.id);
   }
 
   // convert all the children from array of objects to array of ids
